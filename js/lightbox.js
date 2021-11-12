@@ -27,7 +27,7 @@
         root.lightbox = factory(root.jQuery);
     }
 }(this, function ($) {
-
+  $(document).ready( function(){
   function Lightbox(options) {
     this.album = [];
     this.currentImageIndex = void 0;
@@ -551,4 +551,5 @@
   };
 
   return new Lightbox();
+});
 }));
