@@ -1,4 +1,4 @@
-<h2>Add new category</h2>
+<h1><h2>Edit category</h2>
 
 <%= form_for @category do |f| %>
 
@@ -11,9 +11,10 @@
 
     <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name,class:'form-control' %>
+        <%= f.text_field :name, class:'form-control' %>
     </div>
     <br>
     <%= f.submit "Submit", class:'btn btn-primary' %>
-    <%= link_to "Cancel", categories_path ,class:'btn btn-default'%>
-<% end %>
+    <%= link_to "Cancel", categories_path, class:'btn btn-default'%>
+<% end %>#dit</h1>
+<p>Find me in app/views/categories/dit.html.erb</p>

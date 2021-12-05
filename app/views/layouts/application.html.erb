@@ -18,7 +18,7 @@
       <!-- Fixed navbar -->
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">James Hall Gallery</a>
+          <a class="navbar-brand" href="#">Gallery</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -39,9 +39,13 @@
                 <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <ul class="navbar nav navbar-nav">
-              <li><a class="nav-link" href="#">Upload photo</a></li>
-              <li><a class="nav-link" href="#">Add category</a></li>
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" <%= link_to "Upload Photo", upload_path %></a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" <%= link_to "Add Category", new_category_path %></a> 
+                </li>
             </ul>
           </div>
         </div>
@@ -50,6 +54,13 @@
     
       <section>
       <div class="container">
+        <% if flash[:notice] %>
+             <div class ="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+
+        <% if flash[:alert] %>
+              <div class = "alert alert-danger"><%= flash[:alert]%></div>
+        <% end %>
       <%= yield %>
 
       </div>
