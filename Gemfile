@@ -23,8 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'rmagick'
-gem 'carrierwave'
-
+gem 'carrierwave', '~> 1.0'
 gem 'bootstrap', '~> 4.1.1'
 # Use SCSS for stylesheets
 # Use Active Storage variant

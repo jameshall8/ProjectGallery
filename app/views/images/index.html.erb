@@ -1,229 +1,29 @@
 <div id="gallery">
         <h2>All Images</h2>
-        <div class="row">
-            <div class="col-md-3">
+<% if @images.exists? %>
+<% @images.each_slice(4) do |image| %>
+  <div class = "row">
+  <%image.each do |image| %>
+    <div class="col-md-3">
               <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover"  data-fancybox="my-images" data-caption="Lorem Ipsum">
+                <a href = "<%= image.image_url() %>" class="photo-hover"  data-fancybox="my-images" data-caption="<%= image.image_title %>">
                   <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
+                    <div class="headline"><%= image.image_title %></div>
                     <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
+                    <div class="desc"><%= image.image_description %></div>
                   </div>
                   <div class="mask"></div>
                 </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
+                <div class="photo-img"><%= image_tag image.image_url() %></div>
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/2.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/2.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/3.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/3.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/4.jpeg"  class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/4.jpeg"></div>
-              </div>
-            </div>      
-          </div>
-    
-    
-          <div class="row">
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/5.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/5.jpeg"></div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/6.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/6.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/7.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/7.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>      
-          </div>
-    
-    
-          <div class="row">
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>      
-          </div>
-    
-    
-          <div class="row">
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>          
-            <div class="col-md-3">
-              <div class="photo photo-type-line">
-                <a href = "img/1.jpeg" class="photo-hover" data-fancybox="my-images" data-caption="Lorem Ipsum"">
-                  <div class="photo-info">
-                    <div class="headline">Lorem Ipsum</div>
-                    <div class="line"></div>
-                    <div class="desc">hello this is the description</div>
-                  </div>
-                  <div class="mask"></div>
-                </a>
-                <div class="photo-img"><img src="img/1.jpeg"></div>
-              </div>
-            </div>      
-          </div>
-    
           
-    
-    
         </div>
+  </div>
+<% end %>
+<% end %>
+<% else %>
+<p> There are no images! </p>
+<% end %>
+</div>
+            
