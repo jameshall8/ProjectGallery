@@ -1,4 +1,4 @@
-<h1><h2>Edit category</h2>
+<h2>Edit category</h2>
 
 <%= form_for @category do |f| %>
 
@@ -15,6 +15,25 @@
     </div>
     <br>
     <%= f.submit "Submit", class:'btn btn-primary' %>
-    <%= link_to "Cancel", categories_path, class:'btn btn-default'%>
-<% end %>#dit</h1>
-<p>Find me in app/views/categories/dit.html.erb</p>
+    <%= link_to "Cancel", root_path, class:'btn btn-default'%>
+<% end %></h1>
+
+
+<div id="edit_images">
+            <% if @images.exists? %>
+            <h3 class="page-header">Images in <%= @category.name %></h3>
+                <% @images.each_slice(6) do |image| %>
+                    <div class = "row">
+                     <% image.each do |image| %>
+
+                        <div class="col-md-2">
+                            <%= image_tag image.image_url(:thumb) %>
+
+                            <center><%= link_to "Delete", image_path(image), class:'delete', method: :delete, data: {confirm: 'Are you sure?'} %> </center>
+                        </div>
+                        <% end %>
+
+                    <% end %>
+            <% end %>
+</div>
+
