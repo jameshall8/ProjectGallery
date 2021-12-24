@@ -4,7 +4,8 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
+    if logged_in?
+      @image = Image.new(image_params)
   
     
 
@@ -15,6 +16,10 @@ class ImagesController < ApplicationController
     else
       render 'new'
     end
+    else
+      redirect_to login_path
+    end
+    
   end 
 
 
