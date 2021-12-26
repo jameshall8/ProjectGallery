@@ -1,9 +1,16 @@
 class CategoriesController < ApplicationController
   def new
+    if logged_in?
     @category = Category.new
+    else 
+      flash[:notice] = "You must login before creating a category"
+
+      redirect_to login_path
+    end
   end
 
   def create
+    if logged_in?
     @category = Category.new(category_params)
 
     if @category.save
@@ -12,7 +19,13 @@ class CategoriesController < ApplicationController
       redirect_to root_path
     else
       render 'new'
-    end
+    end 
+    else 
+      flash[:notice] = "You must login before creating a category"
+
+      redirect_to login_path
+     
+  end 
 
   end
 
@@ -34,7 +47,13 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    flash[:notice] = "Category Deleted"
+    redirect_to root_path 
+
+
   end
 
   def show

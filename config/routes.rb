@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get "upload" => "images#new", :as => "upload"
   get 'images/create'
-  get 'images/delete'
+  get 'images/delete' 
   get 'images/index'
   get 'categories/new'
   get 'categories/create'
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'categories/update'
   get 'categories/delete'
   get 'categories/show'
+
+  delete "destroy", to: "categories#destroy" 
+  post "destroy", to: "categories#destroy" 
 
 
   get "signup", to: "users#new", as: 'signup'

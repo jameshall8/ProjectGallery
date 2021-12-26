@@ -16,6 +16,7 @@
     <br>
     <%= f.submit "Submit", class:'btn btn-primary' %>
     <%= link_to "Cancel", root_path, class:'btn btn-default'%>
+    <%= link_to "Delete Category", category_path(@category), class:'delete', class:'btn btn-default', :confirm => "Are you sure?", :method => :delete %>
 <% end %></h1>
 
 

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
           redirect_to root_path
         else
           flash.now[:alert] = "There was something wrong with your login details."
-          render 'show'
+          render 'new'
         end
       end
 
