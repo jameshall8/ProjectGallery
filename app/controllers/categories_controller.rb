@@ -31,20 +31,35 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
-    @categories = Category.all
-    @images = @category.images
+
+    if logged_in?
+      @images = @category.images.where(user_id: current_user.username)
+      @categories = Category.all
+      else 
+        @images = @category.images
+        @categories = Category.all
+      end
   end
 
   def update
-    @category = Category.find(params[:id])
-    if  @category.update(category_params)
-      flash[:notice] = "Category Updated"
+    if logged_in?
 
-      redirect_to category_path(params[:id])
+          @category = Category.find(params[:id])
+          if  @category.update(category_params)
+            flash[:notice] = "Category Updated"
 
-    else
-      render 'edit'
-    end
+            redirect_to category_path(params[:id])
+
+          else
+            render 'edit'
+          end
+    else 
+      flash[:notice] = "You must login before editting a category"
+
+      redirect_to login_path
+    end 
+
+    
   end
 
   def destroy
@@ -64,6 +79,6 @@ class CategoriesController < ApplicationController
 
   private 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :user_id)
     end
 end
