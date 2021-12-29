@@ -1,24 +1,22 @@
-# README
+This is my project in rails for a gallery. It allows users to create and edit/delete their own galleries of images and upload images into the gallery that they own.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Things about the project...
 
-Things you may want to cover:
+Prerequisites
+The setups steps expect following tools installed on the system.
 
-* Ruby version
+Github
+Ruby 3.0.2
+Rails 5.0.2
 
-* System dependencies
+ 
+ Database creation
 
-* Configuration
+$ docker-compose run web rails db:create
+$ docker-compose run web rails db:migrate
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
+Deployment instructions
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I have dockerized this project and allowed for you to run this within docker.
