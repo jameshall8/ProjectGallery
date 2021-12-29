@@ -1,38 +1,32 @@
-<div id="gallery">
-<% if logged_in? %>
-  <h2><%= @category.name %> <small class="float-right"><%= link_to "Edit", edit_category_path %> </small></h2>
-<% else %> 
-<h2> <%= @category.name %> </h2>
-<% end %>
+ <div class="container-fluid">
 
-         
+  <div class="jumbotron">
+    <% if logged_in? && @category.user_id == current_user.username %>
+    <h2><%= @category.name %> <small class="float-right"><%= link_to "Edit", edit_category_path %> </small></h2>
+  <% else %> 
+  <h2> <%= @category.name %> </h2>
+  <% end %>
+        <p class="text-center">Please see images below, dont forget you can click on the images to show a slideshow</p>
+    </div>
+                    
     
-    <% if @images.exists? %>
-          <% @images.each_slice(4) do |image| %>
-                  <div class = "row">
-                    <%image.each do |image| %>
-                      <div class="col-md-3">
-                        <div class="photo photo-type-line">
-                            <a href = "<%= image.image_url() %>" class="photo-hover"  data-fancybox="<%= image.category_id %>" data-caption="<%= image.image_title %>">
-                                <div class="photo-info">
-                                  <div class="headline"><%= image.image_title %></div>
-                                    <div class="line"></div>
-                                      <div class="desc"><%= image.image_description %></div>
-                                      </div>
-                                          <div class="mask"></div>
-                                      </a>
-                                        <div class="img-thumbnail photo-img  img-fluid"><%= image_tag image.image_url(:thumb) %></div>
-                                    </div>
-                                  </div>
-                                  
-                                <% end %>
+        <% if @images.exists? %>
+            <div class="row">
+              <% @images.each do |image| %>
+                  <div class="col-sm-6 col-md-4 col-lg-3">
+                    <figure>
+                      <img src="<%= image.image_url() %>" class="img-thumbnail grayscale" class="photo-hover" data-fancybox="<%= image.category_id %>" data-caption="<%= image.image_title %>">
 
-                              </div>
-                              <% end %>
-                            <% else %>
-                            <p> There are no images! </p>
+                      <figcaption><%= image.image_title %></figcaption>
+                    </figure>
+             </div>
+         <% end %>
+         <% else %>
+          <p> There are no images! </p>
+        <% end %>
+   </div>
 
 
-<% end %>
 </div>
+         
         

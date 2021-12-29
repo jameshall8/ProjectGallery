@@ -21,20 +21,25 @@
 
 
 <div id="edit_images">
-            <% if @images.exists? %>
+            
             <h3 class="page-header">Images in <%= @category.name %></h3>
-                <% @images.each_slice(6) do |image| %>
-                    <div class = "row">
-                     <% image.each do |image| %>
+            
 
-                        <div class="col-md-2">
-                            <%= image_tag image.image_url(:thumb) %>
+            <% if @images.exists? %>
+            <div class="row">
+              <% @images.each do |image| %>
+                  <div class="col-sm-6 col-md-4 col-lg-3">
+                    <figure>
+                    <%= image_tag image.image_url(:thumb) %>
+                    <center><%= link_to "Delete", image_path(image), class:'delete', method: :delete, data: {confirm: 'Are you sure?'} %> </center>
 
-                            <center><%= link_to "Delete", image_path(image), class:'delete', method: :delete, data: {confirm: 'Are you sure?'} %> </center>
-                        </div>
-                        <% end %>
+                    </figure>
+             </div>
+         <% end %>
+         <% else %>
+          <p> There are no images! </p>
+        <% end %>
 
-                    <% end %>
-            <% end %>
+   </div>
 </div>
 
