@@ -1,0 +1,1 @@
+CREATE USER flatiron_mod3_development SUPERUSER;
