@@ -9,6 +9,11 @@ Github
 Ruby 3.0.2
 Rails 5.0.2
 
+Make sure you've installed
+
+Docker
+docker-compose
+
  
  Database creation
 
